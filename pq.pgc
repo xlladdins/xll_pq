@@ -1,0 +1,9 @@
+/*
+:!ecpg %
+*/
+EXEC SQL BEGIN DECLARE SECTION;
+int int4;
+double float8;
+EXEC SQL END DECLARE SECTION;
+
+EXEC SQL SELECT a, b INTO :int4, :float8 FROM test;
