@@ -56,7 +56,7 @@ namespace PQ {
 		conn(const char* conninfo)
 			: pconn{ PQconnectdb(conninfo) }
 		{ 
-			if (!pconn) {
+			if (PQstatus(pconn) != CONNECTION_OK) {
 				throw std::runtime_error(__FUNCTION__ ": failed to connect");
 			}
 
